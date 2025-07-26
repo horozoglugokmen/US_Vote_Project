@@ -2,7 +2,7 @@
 
 A comprehensive spatial analysis of US demographic characteristics and voting behavior using R and machine learning techniques.
 
-## 📊 Project Overview
+## Project Overview
 
 This project analyzes the relationship between demographic factors (race, income) and voting patterns across US counties using advanced spatial analysis methods and machine learning algorithms.
 
@@ -14,7 +14,7 @@ This project analyzes the relationship between demographic factors (race, income
 - **Visualization**: Interactive maps and statistical plots
 - **Data Quality Control**: Comprehensive data validation and cleaning procedures
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```
 ├── us_demographic_political_analysis.Rmd  # Main analysis file
@@ -32,7 +32,7 @@ This project analyzes the relationship between demographic factors (race, income
     └── models/                           # Saved model objects
 ```
 
-## 🛠️ Setup and Installation
+## Setup and Installation
 
 ### Prerequisites
 
@@ -54,8 +54,8 @@ install.packages(c(
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/us-demographic-political-analysis.git
-cd us-demographic-political-analysis
+git clone https://github.com/horozoglugokmen/US_Vote_Project.git
+cd US_Vote_Project
 ```
 
 2. Copy your data files to the project directory:
@@ -68,7 +68,7 @@ cd us-demographic-political-analysis
    - `fips.csv`: FIPS code mappings
    - Shapefile directories with complete .shp, .dbf, .shx, .prj files
 
-## 🚀 Usage
+## Usage
 
 ### Running the Analysis
 
@@ -104,7 +104,7 @@ cd us-demographic-political-analysis
    - Feature importance analysis
    - Model comparison and evaluation
 
-## 📈 Key Results
+## Key Results
 
 ### Statistical Findings
 
@@ -112,23 +112,14 @@ cd us-demographic-political-analysis
 - **Income Effects**: Significant relationship between salary income and party preferences
 - **Spatial Patterns**: Confirmed spatial autocorrelation in voting behavior
 
-### Model Performance
-
-| Model | Democratic R² | Republican R² |
-|-------|---------------|---------------|
-| Random Forest | 0.XXX | 0.XXX |
-| XGBoost | 0.XXX | 0.XXX |
-
-*Note: Actual values will be populated when you run the analysis*
-
-## 🗺️ Spatial Analysis Features
+## Spatial Analysis Features
 
 - **Spatial Weights Matrix**: Queen contiguity-based neighborhood relationships
 - **Moran's I Test**: Spatial autocorrelation detection
 - **Spatial Regression**: Lag and error model implementations
 - **Feature Engineering**: Spatial lag variables for ML models
 
-## 📊 Visualizations
+## Visualizations
 
 The analysis generates several types of visualizations:
 
@@ -137,7 +128,7 @@ The analysis generates several types of visualizations:
 - **Population Density Maps**: Spatial distribution analysis
 - **Feature Importance Plots**: ML model interpretability
 
-## 🔧 Configuration
+## Configuration
 
 ### Customizable Parameters
 
@@ -156,14 +147,14 @@ ANALYSIS_PARAMS <- list(
 
 All file paths are configured in the `DATA_PATHS` list and use relative paths for portability.
 
-## 📝 Data Sources
+## Data Sources
 
 - **Demographic Data**: US Census Bureau
 - **Election Data**: County-level election results
 - **Spatial Data**: TIGER/Line Shapefiles
 - **Income Data**: American Community Survey (ACS) via Census API
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -171,21 +162,21 @@ All file paths are configured in the `DATA_PATHS` list and use relative paths fo
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - US Census Bureau for providing demographic and spatial data
 - R community for excellent spatial analysis packages
 - Contributors to the spatial econometrics and machine learning ecosystems
 
-## 📧 Contact
+## Contact
 
-- **Author**: Gökmen
-- **Email**: [your-email@example.com]
-- **Project Link**: [https://github.com/yourusername/us-demographic-political-analysis](https://github.com/yourusername/us-demographic-political-analysis)
+- **Author**: Gokmen Horozoglu
+- **GitHub**: [@horozoglugokmen](https://github.com/horozoglugokmen)
+- **Project Link**: [US_Vote_Project](https://github.com/horozoglugokmen/US_Vote_Project/blob/main/us_demographic_political_analysis.Rmd)
 
 ---
 
