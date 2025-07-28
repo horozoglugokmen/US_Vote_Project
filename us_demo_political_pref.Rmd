@@ -31,6 +31,14 @@ knitr::opts_chunk$set(
 
 This study analyzes US election data combined with demographic factors using spatial analysis methods.
 
+## Main Objectives:
+
+- Analyze the effects of demographic factors (race, income) on voting behavior
+- Test for spatial autocorrelation
+- Model relationships using spatial regression models
+- Improve prediction performance with machine learning approaches
+- Demonstrate the effectiveness of spatial interpolation methodology
+
 ## Important Methodological Note: Connecticut County Structure Change (2024)
 
 **Critical Data Compatibility Issue:**
@@ -44,13 +52,6 @@ As a solution, I used Polygon-to-Polygon Spatial Interpolation:
 
 This methodological approach serves as an important example for solving data incompatibility problems arising from changing administrative boundaries.
 
-## Main Objectives:
-
-- Analyze the effects of demographic factors (race, income) on voting behavior
-- Test for spatial autocorrelation
-- Model relationships using spatial regression models
-- Improve prediction performance with machine learning approaches
-- Demonstrate the effectiveness of spatial interpolation methodology
 
 # 1. SETUP AND CONFIGURATION
 
