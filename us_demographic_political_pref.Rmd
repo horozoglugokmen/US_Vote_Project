@@ -1,7 +1,7 @@
 ---
 title: "US Demographic and Political Preference Analysis"
 subtitle: "Spatial analysis of demographic characteristics and voting behavior"
-author: "Gökmen Horozoglu"
+author: "Gokmen Horozoglu"
 date: "`r Sys.Date()`"
 output:
   html_document:
