@@ -19,19 +19,21 @@ This project analyzes the relationship between demographic factors (race, income
 ## Repository Structure
 
 ```
-├── us_demographic_political_analysis.Rmd  # Main analysis file
+├── us_demographic_political_pref.Rmd     # Main analysis file
 ├── README.md                              # This file
+├── LICENSE                                # MIT License
 ├── data/                                  # Data directory (see setup)
 │   ├── race_2.xlsx                       # Race demographic data
 │   ├── gov.csv                           # Election results
 │   ├── fips.csv                          # FIPS codes
 │   ├── latest_merged_data.xlsx           # Pre-merged dataset
-│   ├── tiger/                            # Tiger shapefiles
-│   ├── smallshp/                         # Small shapefiles
-│   └── small_tiger/                      # Connecticut-specific shapefiles
-└── output/                               # Generated outputs
-    ├── plots/                            # Generated visualizations
-    └── models/                           # Saved model objects
+│   ├── tiger/                            # US Tiger shapefiles
+│   ├── smallshp/                         # Connecticut old boundaries
+│   └── small_tiger/                      # Connecticut new boundaries (2024)
+└── outputs/                              # Generated analysis outputs
+    ├── plots/                            # Statistical visualizations
+    ├── maps/                             # Geographic distribution maps
+    └── tables/                           # Model performance results
 ```
 
 

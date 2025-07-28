@@ -78,7 +78,7 @@ data/smallshp/
 data/small_tiger/
 
 # Output directories
-output/
+outputs/
 plots/
 models/
 
