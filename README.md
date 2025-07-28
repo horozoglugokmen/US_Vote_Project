@@ -52,6 +52,8 @@ install.packages(c(
    - `fips.csv`: FIPS code mappings
    - Shapefile directories with complete .shp, .dbf, .shx, .prj files
 
+**Note**: All file paths are configured as relative paths in the `DATA_PATHS` list for portability across different systems.
+
 
 ### Key Analysis Steps
 

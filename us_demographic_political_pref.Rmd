@@ -80,13 +80,13 @@ options(scipen = 999)
 
 ```{r config}
 DATA_PATHS <- list(
-  race_data = "/Users/gokmen/Desktop/last/race_2.xlsx",
-  vote_data = "/Users/gokmen/Desktop/last/gov.csv", 
-  fips_data = "/Users/gokmen/Desktop/last/fips.csv",
-  small_tiger = "/Users/gokmen/Desktop/last/small_tiger/small_tiger.shp",
-  small_shp = "/Users/gokmen/Desktop/last/smallshp/smallshp.shp",
-  tiger = "/Users/gokmen/Desktop/last/tiger/latest_tiger.shp",
-  latest_merged = "/Users/gokmen/Desktop/last/latest_merged_data.xlsx"
+  race_data = "data/race_2.xlsx",
+  vote_data = "data/gov.csv", 
+  fips_data = "data/fips.csv",
+  small_tiger = "data/small_tiger/small_tiger.shp",
+  small_shp = "data/smallshp/smallshp.shp",
+  tiger = "data/tiger/latest_tiger.shp",
+  latest_merged = "data/latest_merged_data.xlsx"
 )
 
 # Census API
