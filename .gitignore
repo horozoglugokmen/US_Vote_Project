@@ -51,20 +51,21 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Data files (large datasets)
-*.xlsx
-*.csv
-*.shp
-*.dbf
-*.shx
-*.prj
-*.cpg
-*.xml
+# Data files - Note: Large datasets in data/ folder
+# You may want to use Git LFS for large files or keep them local only
+data/*.xlsx
+data/*.csv
+data/*.shp
+data/*.dbf
+data/*.shx
+data/*.prj
+data/*.cpg
+data/*.xml
 
-# Shapefile directories
-tiger/
-smallshp/
-small_tiger/
+# Shapefile directories in data folder
+data/tiger/
+data/smallshp/
+data/small_tiger/
 
 # Output directories
 output/

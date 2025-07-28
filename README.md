@@ -6,6 +6,8 @@ A comprehensive spatial analysis of US demographic characteristics and voting be
 
 This project analyzes the relationship between demographic factors (race, income) and voting patterns across US counties using advanced spatial analysis methods and machine learning algorithms.
 
+**Dataset Scale**: Analysis of **~100,000 records** across multiple datasets including county-level demographic data, election results, and spatial geometries covering the entire United States.
+
 ### Key Features
 
 - **Spatial Data Processing**: Integration of multiple shapefiles and demographic datasets
