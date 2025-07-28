@@ -6,7 +6,7 @@ A comprehensive spatial analysis of US demographic characteristics and voting be
 
 This project analyzes the relationship between demographic factors (race, income) and voting patterns across US counties using advanced spatial analysis methods and machine learning algorithms.
 
-**Dataset Scale**: Analysis of **~100,000 records** across multiple datasets including county-level demographic data, election results, and spatial geometries covering the entire United States.
+**Dataset Scale**: Analysis of **~100,000 records** across multiple datasets including 3109 county, salary income, race, election results, and spatial geometries covering the entire United States.
 
 ### Key Features
 
@@ -34,13 +34,6 @@ This project analyzes the relationship between demographic factors (race, income
     └── models/                           # Saved model objects
 ```
 
-## Setup and Installation
-
-### Prerequisites
-
-- R (version 4.0 or higher)
-- RStudio (recommended)
-- Git
 
 ### Required R Packages
 
@@ -52,31 +45,11 @@ install.packages(c(
 ))
 ```
 
-### Data Setup
-
-1. Clone this repository:
-```bash
-git clone https://github.com/horozoglugokmen/US_Vote_Project.git
-cd US_Vote_Project
-```
-
-2. Copy your data files to the project directory:
-   - Place all `.xlsx`, `.csv` files in the root directory
-   - Create subdirectories for shapefiles: `tiger/`, `smallshp/`, `small_tiger/`
-
-3. Ensure your data structure matches the expected format:
    - `race_2.xlsx`: Demographic data by county
    - `gov.csv`: Election results with county FIPS codes
    - `fips.csv`: FIPS code mappings
    - Shapefile directories with complete .shp, .dbf, .shx, .prj files
 
-## Usage
-
-### Running the Analysis
-
-1. Open `us_demographic_political_analysis.Rmd` in RStudio
-2. Install required packages (if not already installed)
-3. Run the entire notebook or execute chunks individually
 
 ### Key Analysis Steps
 
@@ -130,20 +103,6 @@ The analysis generates several types of visualizations:
 - **Population Density Maps**: Spatial distribution analysis
 - **Feature Importance Plots**: ML model interpretability
 
-## Configuration
-
-### Customizable Parameters
-
-Edit the `ANALYSIS_PARAMS` list in the configuration section:
-
-```r
-ANALYSIS_PARAMS <- list(
-  target_state = "connecticut",  # State for detailed analysis
-  critical_vars = c("per_gop", "per_dem", "salary_income_ln", 
-                   "Hispanic_ratio", "White_ratio", "Black_ratio"),
-  numeric_cols = c(...)  # Columns for processing
-)
-```
 
 ### File Paths
 
@@ -156,29 +115,15 @@ All file paths are configured in the `DATA_PATHS` list and use relative paths fo
 - **Spatial Data**: TIGER/Line Shapefiles
 - **Income Data**: American Community Survey (ACS) via Census API
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
 
-- US Census Bureau for providing demographic and spatial data
-- R community for excellent spatial analysis packages
-- Contributors to the spatial econometrics and machine learning ecosystems
-
-## Contact
 
 - **Author**: Gokmen Horozoglu
 - **GitHub**: [@horozoglugokmen](https://github.com/horozoglugokmen)
-- **Project Link**: [US_Vote_Project](https://github.com/horozoglugokmen/US_Vote_Project/blob/main/us_demographic_political_analysis.Rmd)
 
 ---
 
