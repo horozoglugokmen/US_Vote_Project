@@ -59,7 +59,10 @@ rsconnect/
 !outputs/
 !outputs/*/
 !outputs/*/*.png
-!outputs/*/*.csv only
+!outputs/*/*.csv
+
+# Exclude large HTML reports (too big for GitHub)
+*.html only
 data/*.xlsx
 data/*.csv
 data/*.shp
