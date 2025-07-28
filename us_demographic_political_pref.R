@@ -80,17 +80,24 @@ options(scipen = 999)
 
 ```{r config}
 DATA_PATHS <- list(
-  race_data = "data/race_2.xlsx",
-  vote_data = "data/gov.csv", 
-  fips_data = "data/fips.csv",
-  small_tiger = "data/small_tiger/small_tiger.shp",
-  small_shp = "data/smallshp/smallshp.shp",
-  tiger = "data/tiger/latest_tiger.shp",
-  latest_merged = "data/latest_merged_data.xlsx"
+  race_data = "/Users/gokmen/Desktop/last/race_2.xlsx",
+  vote_data = "/Users/gokmen/Desktop/last/gov.csv", 
+  fips_data = "/Users/gokmen/Desktop/last/fips.csv",
+  small_tiger = "/Users/gokmen/Desktop/last/small_tiger/small_tiger.shp",
+  small_shp = "/Users/gokmen/Desktop/last/smallshp/smallshp.shp",
+  tiger = "/Users/gokmen/Desktop/last/tiger/latest_tiger.shp",
+  latest_merged = "/Users/gokmen/Desktop/last/latest_merged_data.xlsx"
 )
 
 # Census API
 CENSUS_API_URL <- "https://api.census.gov/data/2023/acs/acs5/subject?get=group(S1902)&ucgid=pseudo(0100000US$0500000)"
+
+# Output paths for saving results
+OUTPUT_PATHS <- list(
+  plots = "outputs/plots/",
+  tables = "outputs/tables/",
+  maps = "outputs/maps/"
+)
 
 # Analysis parameters
 ANALYSIS_PARAMS <- list(
@@ -318,6 +325,9 @@ p1 <- ggplot(data = smallshp) +
   ) +
   theme_minimal()
 
+# Save and display
+ggsave(paste0(OUTPUT_PATHS$maps, "01_before_interpolation.png"), p1, 
+       width = 12, height = 8, dpi = 300)
 print(p1)
 
 # AFTER: New county structure (post spatial interpolation)
@@ -338,9 +348,12 @@ p2 <- ggplot(data = interpolated) +
   ) +
   theme_minimal()
 
+# Save and display
+ggsave(paste0(OUTPUT_PATHS$maps, "02_after_interpolation.png"), p2, 
+       width = 12, height = 8, dpi = 300)
 print(p2)
 
-glue("Spatial interpolation comparison maps completed")
+glue("Spatial interpolation comparison maps completed and saved")
 ```
 
 # 5. TIGER DATA AND LARGE DATA MERGING
@@ -559,6 +572,8 @@ p1 <- ggplot(final_merged_data, aes(x = salary_income_ln, y = per_dem)) +
   ) +
   theme_minimal()
 
+ggsave(paste0(OUTPUT_PATHS$plots, "03_salary_vs_democratic.png"), p1, 
+       width = 10, height = 6, dpi = 300)
 print(p1)
 
 # Other Ratio vs Per Dem
@@ -572,6 +587,8 @@ p2 <- ggplot(final_merged_data, aes(x = Other_ratio, y = per_dem)) +
   ) +
   theme_minimal()
 
+ggsave(paste0(OUTPUT_PATHS$plots, "04_other_vs_democratic.png"), p2, 
+       width = 10, height = 6, dpi = 300)
 print(p2)
 
 # Black Ratio vs Per Dem
@@ -585,6 +602,8 @@ p3 <- ggplot(final_merged_data, aes(x = Black_ratio, y = per_dem)) +
   ) +
   theme_minimal()
 
+ggsave(paste0(OUTPUT_PATHS$plots, "05_black_vs_democratic.png"), p3, 
+       width = 10, height = 6, dpi = 300)
 print(p3)
 
 # Per GOP vs Black Ratio
@@ -598,6 +617,8 @@ p4 <- ggplot(final_merged_data, aes(x = per_gop, y = Black_ratio)) +
   ) +
   theme_minimal()
 
+ggsave(paste0(OUTPUT_PATHS$plots, "06_republican_vs_black.png"), p4, 
+       width = 10, height = 6, dpi = 300)
 print(p4)
 ```
 
@@ -614,6 +635,8 @@ map1 <- ggplot(final_merged_data) +
   ) +
   theme_void()
 
+ggsave(paste0(OUTPUT_PATHS$maps, "07_democratic_vote_share.png"), map1, 
+       width = 14, height = 10, dpi = 300)
 print(map1)
 
 # Black Population Ratio Map
@@ -626,6 +649,8 @@ map2 <- ggplot(final_merged_data) +
   ) +
   theme_void()
 
+ggsave(paste0(OUTPUT_PATHS$maps, "08_black_population_ratio.png"), map2, 
+       width = 14, height = 10, dpi = 300)
 print(map2)
 
 # White Population Ratio Map
@@ -638,6 +663,8 @@ map3 <- ggplot(final_merged_data) +
   ) +
   theme_void()
 
+ggsave(paste0(OUTPUT_PATHS$maps, "09_white_population_ratio.png"), map3, 
+       width = 14, height = 10, dpi = 300)
 print(map3)
 
 # Salary Income Map
@@ -650,6 +677,8 @@ map4 <- ggplot(final_merged_data) +
   ) +
   theme_void()
 
+ggsave(paste0(OUTPUT_PATHS$maps, "10_salary_income_log.png"), map4, 
+       width = 14, height = 10, dpi = 300)
 print(map4)
 ```
 
@@ -776,10 +805,44 @@ glue("Republican Model R²: {round(gop_r2, 3)}")
 ### Model Visualizations
 
 ```{r rf-visualizations}
+# Save Random Forest feature importance plots
+png(paste0(OUTPUT_PATHS$plots, "11_rf_democrat_importance.png"), 
+    width = 800, height = 600, res = 150)
+varImpPlot(rf_dem, main = "Democrat Model - Feature Importance")
+dev.off()
+
+png(paste0(OUTPUT_PATHS$plots, "12_rf_republican_importance.png"), 
+    width = 800, height = 600, res = 150)
+varImpPlot(rf_gop, main = "Republican Model - Feature Importance")
+dev.off()
+
+# Display plots
 varImpPlot(rf_dem, main = "Democrat Model - Feature Importance")
 varImpPlot(rf_gop, main = "Republican Model - Feature Importance")
 
 # Prediction accuracy plots
+png(paste0(OUTPUT_PATHS$plots, "13_rf_prediction_accuracy.png"), 
+    width = 1200, height = 600, res = 150)
+par(mfrow = c(1, 2))
+
+plot(test_data$per_dem, dem_pred, 
+     main = "Democrat: Actual vs Predicted", 
+     xlab = "Actual Value", ylab = "Predicted", 
+     col = "blue", pch = 16, alpha = 0.6)
+abline(0, 1, col = "red", lwd = 2)
+text(0.1, 0.8, paste("R² =", round(dem_r2, 3)), col = "red")
+
+plot(test_data$per_gop, gop_pred, 
+     main = "Republican: Actual vs Predicted", 
+     xlab = "Actual Value", ylab = "Predicted", 
+     col = "red", pch = 16, alpha = 0.6)
+abline(0, 1, col = "blue", lwd = 2)
+text(0.1, 0.9, paste("R² =", round(gop_r2, 3)), col = "blue")
+
+par(mfrow = c(1, 1))
+dev.off()
+
+# Display plots
 par(mfrow = c(1, 2))
 
 plot(test_data$per_dem, dem_pred, 
@@ -907,6 +970,9 @@ comparison_df <- data.frame(
   Dem_RMSE = c(sqrt(mean((test_data$per_dem - dem_pred)^2)), xgb_dem_rmse),
   GOP_RMSE = c(sqrt(mean((test_data$per_gop - gop_pred)^2)), xgb_gop_rmse)
 )
+
+# Save model comparison table
+write.csv(comparison_df, paste0(OUTPUT_PATHS$tables, "model_comparison.csv"), row.names = FALSE)
 
 glue("Model Comparison:")
 print(comparison_df)

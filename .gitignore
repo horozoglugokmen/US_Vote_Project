@@ -52,7 +52,14 @@ po/*~
 rsconnect/
 
 # Data files - Note: Large datasets in data/ folder
-# You may want to use Git LFS for large files or keep them local only
+# You may want to use Git LFS for large files or keep them local
+
+# Analysis outputs - Include visualization results for GitHub display
+# outputs/ folder contains generated plots, maps, and tables
+!outputs/
+!outputs/*/
+!outputs/*/*.png
+!outputs/*/*.csv only
 data/*.xlsx
 data/*.csv
 data/*.shp
